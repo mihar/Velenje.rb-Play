@@ -1,4 +1,4 @@
-<h1>@artist.name</h1>
+<h1><%= h @artist.name %></h1>
 <ul>
 <% @artist.tracks.each do |t| %>
   <li><%= t.name %></li>
