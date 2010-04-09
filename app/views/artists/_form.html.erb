@@ -1,0 +1,16 @@
+<% form_for @artist do |f| %>
+  <p>
+    <%= f.label :ime %>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :priimek %>
+    <%= f.text_field :surname %>
+  </p>
+  <p>
+    <%= f.label :skupina %>
+    <%= f.text_field :band %>
+  </p>
+
+  <%= f.submit "Shrani" %>
+<% end %>

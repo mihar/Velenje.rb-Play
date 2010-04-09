@@ -1,0 +1,21 @@
+<% form_for @album do |f| %>
+  <p>
+    <%= f.label :ime %>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :izvajalec %>
+    <%= f.collection_select :artist_id, Artist.all, :id, :title, :include_blank => true %>
+  </p>
+  <p>
+    <h2>Žanri</h2>
+    <% @genres.each do |genre| %>
+      <label>
+        <%= check_box_tag "album[genre_ids][]", genre.id, @album.genres.include?(genre) %>
+        <%= genre %>
+      </label>
+    <% end %>
+  </p>
+
+  <%= f.submit "Shrani" %>
+<% end %>

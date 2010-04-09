@@ -1,0 +1,7 @@
+<h1>Vsebina košarice</h1>
+<p><%= link_to "Plačaj izdelke", new_order_path %></p>
+<ol>
+<% @items.each do |item| %>
+  <li><%= item.product %> (<%= number_to_currency item.price %>)</li>
+<% end %>
+</ol>

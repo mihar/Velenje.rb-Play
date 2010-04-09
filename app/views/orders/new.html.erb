@@ -1,0 +1,36 @@
+<h1>Novo naročilo</h1>
+
+<div class="cart_content">
+  <ol>
+    <% find_cart.items.each do |item| %>
+      <li><%= item.product %> (<%= number_to_currency item.price %>)</li>
+    <% end %>
+  </ol>  
+</div>
+
+<% form_for @order do |f| %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :surname %>
+    <%= f.text_field :surname %>
+  </p>
+  <p>
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+  </p>
+  <p>
+    <%= f.label :post_id %>
+    <%= f.text_field :post_id %>
+  </p>
+  <p>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </p>
+  
+  <p>
+    <%= f.submit "Naroči" %>
+  </p>
+<% end %>

@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+  "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <title>Play!</title>
+  <%= stylesheet_link_tag 'application' %>
+</head>
+<body>
+  <% if admin? %>
+    <div id="admin">
+      Prijavljen kot administrator
+      <%= link_to "Odjava", session_path, :method => :delete %>
+    </div>
+  <% end %>
+  <div id="head">
+    <h1>
+      <%= link_to "Play!", root_path %>
+    </h1>
+    <ul>
+      <%= menu_item "Izvajalci", artists_path %>
+      <%= menu_item "Albumi", albums_path %>
+      <%= menu_item "Komadi", tracks_path %>
+      <%= menu_item "Žanri", genres_path %>
+    </ul>
+    <% if find_cart and not find_cart.empty? %>
+      <div id="cart">
+        <p>
+          V košarici je <%= sklanjaj_izdelke find_cart.size %>.
+        </p>
+        <p>
+          Skupna cena: <%= number_to_currency find_cart.total_price %>
+        </p>
+        <p>
+          <%= link_to "Odpri košarico", cart_items_path %>
+        </p>
+      </div>
+    <% end %>
+    <br class="clear">
+  </div>
+
+  <div id="content">
+    <%= yield %>
+  </div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<% form_for @track do |f| %>
+  <p>
+    <%= f.label :naziv %>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label "Dolžina" %>
+    <%= f.text_field :duration %>
+  </p>
+  <p>
+    <%= f.label "Cena" %>
+    <%= f.text_field :price %>
+  </p>
+  <p>  
+    <%= f.label "Album" %>
+    <%= f.collection_select :album_id, Album.all, :id, :name %>
+  </p>
+
+  <%= f.submit "Shrani" %>
+<% end %>

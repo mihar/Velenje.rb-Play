@@ -1,0 +1,30 @@
+<h1><%= @track %></h1>
+
+<% unless find_cart.has? @track %>
+  <%= link_to "Dodaj v košarico", new_cart_item_path(:id => @track) %>
+<% end %>
+
+<p>
+  <strong>Naslov komada:</strong>
+  <%= @track %>
+</p>
+
+<p>
+  <strong>Izvajalec:</strong>
+  <%= @track.album.artist %>
+</p>
+
+<p>
+  <strong>Album:</strong>
+  <%= @track.album %>
+</p>
+
+<p>
+  <strong>Dolžina:</strong>
+  <%= format_duration @track.duration %>
+</p>
+
+<p>
+  <strong>Cena:</strong>
+  <%= number_to_currency @track.price %>
+</p>

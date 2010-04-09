@@ -1,0 +1,20 @@
+<h1>Žanri</h1>
+<% if admin? %>
+  <div class="admin">
+    <%= link_to "Nov žanr", new_genre_path %>
+  </div>
+<% end %>
+
+<ul>
+<% @genres.each do |genre| %>
+  <li>
+    <%= link_to genre, genre %>
+    <% if admin? %>
+      <div class="admin">
+        <%= link_to "Uredi", edit_genre_path(genre) %>
+        <%= link_to "Odstrani", genre, :method => :delete, :confirm => "Ste prepricani?" %>
+      </div>
+    <% end %>
+  </li>
+<% end%>
+</ul>

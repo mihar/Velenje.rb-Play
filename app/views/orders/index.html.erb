@@ -1,0 +1,4 @@
+<% @orders.each do |order| %>
+  <%= debug order %>
+  <%= order.line_items.map(&:track).join(", ") %>
+<% end %>

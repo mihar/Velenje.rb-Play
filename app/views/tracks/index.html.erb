@@ -1,0 +1,24 @@
+<h1>Izpis komadov</h1>
+
+<% if admin? %>
+  <div class="admin">
+  <%= link_to "Nov komad", new_track_path %>
+  </div>
+<% end %>
+
+<ul>
+<% @tracks.each do |track| %>
+  <% if track.album and track.album.artist %>
+    <li>
+      <%= link_to track, track %>
+      
+      <% if admin? %>
+        <div class="admin">
+          <%= link_to "Uredi", edit_track_path(track) %>
+          <%= link_to "Odstrani", track, :method => :delete, :confirm => "Ste prepričani?" %>
+        </div>
+      <% end %>
+    </li>
+  <% end %>
+<% end%>
+</ul>

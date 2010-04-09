@@ -1,0 +1,22 @@
+<h1>Izvajalci</h1>
+
+<% if admin? %>
+  <div class="admin">
+    <%= link_to "Dodaj izvajalca", new_artist_path %>
+  </div>
+<% end %>
+
+<ul>
+<% @artists.each do |artist| %>
+  <li>
+    <%= link_to artist, artist %>
+    
+    <% if admin? %>
+      <div class="admin">
+        <%= link_to "Uredi", edit_artist_path(artist) %>
+        <%= link_to "Odstrani", artist, :method => :delete, :confirm => "Ste prepričani?" %>
+      </div>
+    <% end %>    
+  </li>
+<% end %>
+</ul>

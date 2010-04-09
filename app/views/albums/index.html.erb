@@ -1,0 +1,19 @@
+<h1>Albumi</h1>
+<% if admin? %>
+  <div class="admin">
+  <%= link_to "Dodaj album", new_album_path %>
+  </div>
+<% end %>
+<ul>
+<% @albums.each do |album| %>
+  <li>
+    <%= link_to album, album %>
+    <% if admin? %>
+      <div class="admin">
+        <%= link_to "Uredi", edit_album_path(album) %>
+        <%= link_to "Odstrani", album, :method => :delete, :confirm => "Ste prepričani?" %>      
+      </div>
+    <% end %>
+  </li>
+<% end %>
+</ul>
