@@ -20,6 +20,7 @@ class ApplicationController < ActionController::Base
   
   def authenticate
     unless admin?
+      session[:back_to] = request.url
       redirect_to new_session_path
     end
   end

@@ -5,6 +5,8 @@ class Artist < ActiveRecord::Base
   named_scope :band_exists, :conditions => "band IS NOT NULL AND band !=''"
   named_scope :surname_exists, :conditions => "surname IS NOT NULL AND surname != ''"
   
+  validates_presence_of :name
+  
   def person_name    
     "#{name} #{surname}"
   end

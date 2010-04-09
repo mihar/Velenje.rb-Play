@@ -8,7 +8,12 @@ class SessionsController < ApplicationController
 
   def create
     session[:password] = params[:password]
-    redirect_to root_path
+    if session[:go_back]
+      session[:go_back] = nil
+      redirect_to session[:go_back]
+    else
+      redirect_to root_path
+    end
   end
 
 end
